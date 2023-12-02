@@ -7,7 +7,7 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # List of plugins used
 plugins=()
 source $ZSH/oh-my-zsh.sh
-
+export EDITOR=nano
 # In case a command is not found, try to find the package that has it
 function command_not_found_handler {
     local purple='\e[1;35m' bright='\e[0;1m' green='\e[1;32m' reset='\e[0m'
@@ -39,7 +39,7 @@ function in {
     local pkg="$1"
     if pacman -Si "$pkg" &>/dev/null ; then
         sudo pacman -S "$pkg"
-    else 
+    else
         "$aurhelper" -S "$pkg"
     fi
 }
